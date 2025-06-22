@@ -1,4 +1,9 @@
-function init_grid(width, height) {
+function onSquareHover(e) {
+  e.target.style.backgroundColor = color;
+  console.log("hi");
+}
+
+function initGrid(width, height, color) {
   const screenWidth = document.documentElement.clientWidth;
   const screenHeight = document.documentElement.clientHeight;
 
@@ -19,6 +24,7 @@ function init_grid(width, height) {
     for (let j = 0; j < width; j++) {
       const square = document.createElement("div");
       square.classList.add("grid-square");
+      square.addEventListener("mouseover", e=>onSquareHover(e, color));
 
       row.appendChild(square);
     }
@@ -28,5 +34,6 @@ function init_grid(width, height) {
 }
 
 const width = 16, height = 16;
+const color = "green";
 
-init_grid(width, height);
+initGrid(width, height, color);
